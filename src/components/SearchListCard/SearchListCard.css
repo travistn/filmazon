@@ -1,0 +1,45 @@
+.searchList__card {
+  display: flex;
+  gap: 0.5rem;
+  border: 1px solid lightgray;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  height: 145px;
+}
+
+.searchList__card-image {
+  cursor: pointer;
+}
+
+.searchList__card-image:hover {
+  opacity: 80%;
+}
+
+.searchList__card-content {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-base);
+}
+
+.searchList__card-content h4 {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.searchList__card-content h4:hover {
+  text-decoration: underline;
+}
+
+.searchList__card-content h5 {
+  color: gray;
+  font-weight: 400;
+  font-size: 14px;
+  margin-top: 0.2rem;
+}
+
+.searchList__card-content p {
+  font-size: 15px;
+  margin-top: 1rem;
+}

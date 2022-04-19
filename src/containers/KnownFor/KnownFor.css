@@ -1,0 +1,29 @@
+.knownFor__container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 0.5rem;
+  gap: 1.5rem;
+}
+
+.knownFor__card {
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: flex-start;
+  width: 185px;
+  cursor: pointer;
+}
+
+.knownFor__card img {
+  border-radius: 10px;
+}
+
+.knownFor__card img:hover {
+  opacity: 80%;
+}
+
+.knownfor__card-text {
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}

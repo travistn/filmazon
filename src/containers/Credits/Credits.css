@@ -1,0 +1,40 @@
+.credits__table {
+  width: 100%;
+  margin-top: 1rem;
+  border: 1px solid lightgray;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+}
+/* 
+.table__group {
+  border-bottom: 1px solid lightgray;
+  width: 100%;
+} */
+
+tr {
+  display: table-row;
+  margin-bottom: 2rem;
+}
+
+td {
+  padding: 0.5rem;
+}
+
+.credit-title {
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.credit-title:hover {
+  text-decoration: underline;
+}
+
+.credits-characterAs {
+  color: gray;
+  font-weight: 300;
+}
+
+.credits-characterName {
+  color: black;
+  font-size: 16px;
+  font-weight: 400;
+}

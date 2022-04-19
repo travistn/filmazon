@@ -1,0 +1,67 @@
+.nowPlaying__container {
+  display: flex;
+  flex-direction: column;
+  width: 67%;
+  margin: 50px auto;
+  font-family: var(--font-base);
+}
+
+.nowPlaying-header h2 {
+  font-weight: 500;
+}
+
+.nowPlaying__list {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  overflow-x: scroll;
+  margin-top: 1rem;
+}
+
+.nowPlaying__list::-webkit-scrollbar {
+  background-color: white;
+  height: 10px;
+  scroll-margin-top: 10px;
+}
+
+.nowPlaying__list::-webkit-scrollbar-thumb {
+  background-color: lightgray;
+  border-radius: 10px;
+}
+
+.nowPlaying__card {
+  position: relative;
+  width: 200px;
+}
+
+.nowPlaying__card-image {
+  height: 250px;
+  width: 85%;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.nowPlaying__card-image:hover {
+  opacity: 80%;
+}
+
+.nowPlaying__card-content {
+  height: 100%;
+  width: 90%;
+  font-family: var(--font-base);
+  margin-bottom: 1rem;
+}
+
+.nowPlaying__card-content h2 {
+  font-size: 16px;
+}
+
+.nowPlaying__card-content h2:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: var(--color-lightBlue);
+}
+
+.nowPlaying__card-content p {
+  margin-top: 0.2rem;
+}

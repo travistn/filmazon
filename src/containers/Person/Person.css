@@ -1,0 +1,106 @@
+.person__wrapper {
+  display: flex;
+}
+
+.person__page {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: center;
+  width: 100%;
+  margin-top: 3rem;
+  font-family: var(--font-base);
+}
+
+.column__wrapper {
+  width: 85%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+.left__column {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  width: 300px;
+}
+
+.person-picture {
+  border-radius: 10px;
+}
+
+.person__information {
+  display: flex;
+  flex-direction: column;
+}
+
+.person__information h3 {
+  margin-top: 1rem;
+  font-size: 22px;
+}
+
+.person__socials {
+  display: flex;
+  flex-direction: row;
+  font-size: 22px;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+.person__socials a {
+  text-decoration: none;
+  color: black;
+}
+
+.person__information-header {
+  margin-top: 1rem;
+}
+
+.person__information-header h5 {
+  font-size: 16px;
+}
+
+.person__information-header p {
+  font-size: 15px;
+}
+
+.right__column {
+  max-width: 960px;
+  margin-left: 2rem;
+}
+
+.person-biography {
+  margin-top: 2rem;
+}
+
+.person-name {
+  font-size: 22px;
+}
+
+.person-biography h4 {
+  font-size: 18px;
+  margin-bottom: 1rem;
+}
+
+.person-biography p {
+  line-height: 1.4em;
+}
+
+.person-knownFor {
+  margin-top: 2rem;
+}
+
+.person-knownFor h4 {
+  font-size: 18px;
+}
+
+.person-credits {
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.person-credits h4 {
+  font-size: 18px;
+}

@@ -1,0 +1,34 @@
+.cast__card {
+  width: 140px;
+  min-width: 140px;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.cast__card:hover {
+  opacity: 70%;
+}
+
+.cast-img {
+  height: 200px;
+  width: 100%;
+  display: block;
+}
+
+.cast__card-content {
+  padding: 8px;
+}
+
+.cast__card-actor {
+  font-weight: 500;
+}
+
+.cast__card-character {
+  font-size: 13px;
+  margin-top: 0.3rem;
+}

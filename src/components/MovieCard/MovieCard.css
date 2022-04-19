@@ -1,0 +1,46 @@
+.movie__card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 190px;
+  height: 375px;
+  max-height: 375px;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.movie__card img {
+  max-width: 190px;
+  max-height: 275px;
+}
+
+.movie__card img:hover {
+  opacity: 80%;
+  cursor: pointer;
+}
+
+.movie__card-content {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5rem;
+  gap: 0.5rem;
+  font-family: var(--font-base);
+  padding: 0.5rem;
+}
+
+.movie__card-title {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.movie__card-title:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: var(--color-lightBlue);
+}
+
+.movie__card-releaseDate {
+  font-size: 14px;
+  color: gray;
+}

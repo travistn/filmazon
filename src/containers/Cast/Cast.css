@@ -1,0 +1,30 @@
+.cast {
+  display: flex;
+  flex-direction: column;
+  margin: 50px auto;
+  width: 100%;
+  font-family: var(--font-base);
+}
+
+.cast h3 {
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.cast__list {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  overflow-x: scroll;
+  margin-top: 2rem;
+}
+
+.cast__list::-webkit-scrollbar {
+  background-color: white;
+  height: 8px;
+}
+
+.cast__list::-webkit-scrollbar-thumb {
+  background-color: lightgray;
+  border-radius: 10px;
+}

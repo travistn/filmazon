@@ -1,0 +1,47 @@
+.trailer__background {
+  display: flex;
+  position: fixed;
+  transform: translate(-26%, -50%);
+}
+
+.trailer__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 1420px;
+  height: 800px;
+}
+
+.trailer__titlebar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  border-color: black;
+  width: 100%;
+  height: 50px;
+}
+
+.trailer__titlebar p {
+  font-size: 20px;
+  transform: translatex(-675%);
+}
+
+.trailer__close {
+  display: flex;
+  color: gray;
+  font-size: 20px;
+  transform: translateX(3200%);
+  cursor: pointer;
+}
+
+.trailer__close:hover {
+  color: white;
+}
+
+.trailer__video {
+  width: 100%;
+  height: 100%;
+  border-width: 0;
+}

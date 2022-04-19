@@ -1,0 +1,42 @@
+.header__wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.header__container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-content: flex-start;
+  position: relative;
+  width: 67%;
+  height: 360px;
+}
+
+.header__container:before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-image: rgb(223, 185, 113);
+  background: linear-gradient(142deg, rgba(223, 185, 113, 1) 0%, rgba(196, 118, 104, 1) 90%);
+  opacity: 90%;
+}
+
+.header-content {
+  font-family: var(--font-base);
+  color: white;
+  padding: 2rem;
+  margin: 2rem;
+  z-index: 5;
+}
+
+.header-content h3 {
+  font-size: 45px;
+}
+
+.header-content h4 {
+  font-size: 30px;
+  margin-top: 1rem;
+}

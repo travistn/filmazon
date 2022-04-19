@@ -1,0 +1,52 @@
+.sort__wrapper {
+  width: 260px;
+  font-family: var(--font-base);
+}
+
+.sort__container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid lightgray;
+  border-radius: 8px;
+}
+
+.sort__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 14px 16px;
+  border-bottom: 1px solid lightgray;
+}
+
+.sort__container h3 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.sort-arrow {
+  font-size: 20px;
+  margin-left: 10rem;
+}
+
+.sort-results {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 14px 16px;
+  margin-left: 0.3rem;
+}
+
+.sort-results h5 {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.sort-results select {
+  font-family: var(--font-base);
+  margin-top: 0.5rem;
+  width: 100%;
+  padding: 0.4rem;
+  border-radius: 4px;
+  background-color: lightgray;
+}
