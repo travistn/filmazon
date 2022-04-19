@@ -1,7 +1,7 @@
 .trailer__background {
-  display: flex;
   position: fixed;
-  transform: translate(-26%, -50%);
+  top: 1.5rem;
+  right: 12%;
 }
 
 .trailer__container {
