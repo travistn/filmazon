@@ -38,7 +38,9 @@ const App = () => {
           }></Route>
         <Route
           path={`movie/${movieId}`}
-          element={<MovieDetails movieId={movieId} setPersonId={setPersonId} />}
+          element={
+            <MovieDetails movieId={movieId} setMovieId={setMovieId} setPersonId={setPersonId} />
+          }
         />
         <Route
           path={`person/${personId}`}

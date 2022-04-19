@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 
 import Trailer from '../../components/Trailer/Trailer';
 import Cast from '../Cast/Cast';
+import SimilarMovies from '../SimilarMovies/SimilarMovies';
 import './MovieDetails.css';
 
 const apiKey = process.env.REACT_APP_MOVIEDB_API_KEY;
@@ -22,7 +23,7 @@ const formatDate = (date) => {
   return `${month}/${day}/${year}`;
 };
 
-const MovieDetails = ({ movieId, setPersonId }) => {
+const MovieDetails = ({ movieId, setMovieId, setPersonId }) => {
   const [movieInfo, setMovieInfo] = useState({});
   const [movieTrailer, setMovieTrailer] = useState();
   const [openModal, setOpenModal] = useState(false);
@@ -115,6 +116,8 @@ const MovieDetails = ({ movieId, setPersonId }) => {
       <div className='cast__container'>
         <Cast movieId={movieId} setPersonId={setPersonId} />
       </div>
+
+      <SimilarMovies movieId={movieId} setMovieId={setMovieId} />
     </div>
   );
 };
