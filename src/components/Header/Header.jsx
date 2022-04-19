@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 import Search from '../Search/Search';
 import './Header.css';
@@ -19,10 +19,10 @@ const Header = ({ setMovies, searchTerm, setSearchTerm }) => {
     setMoviesList(data.results);
   };
 
-  const getRandomizedMovie = async () => {
+  const getRandomizedMovie = useCallback(async () => {
     const random = await moviesList[Math.floor(Math.random() * moviesList.length)];
     setRandomMovie(random);
-  };
+  }, [moviesList]);
 
   useEffect(() => {
     getTrendingMovies();
@@ -30,7 +30,7 @@ const Header = ({ setMovies, searchTerm, setSearchTerm }) => {
 
   useEffect(() => {
     getRandomizedMovie();
-  });
+  }, [getRandomizedMovie]);
 
   return (
     <div className='header__wrapper'>
