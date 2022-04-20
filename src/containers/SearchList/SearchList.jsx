@@ -24,6 +24,7 @@ const SearchList = ({ movies, setMovieId }) => {
               overview={movie?.overview}
               movieId={movie?.id}
               setMovieId={setMovieId}
+              key={movie?.id}
             />
           ))}
         </div>

@@ -33,3 +33,20 @@
   gap: 2rem;
   margin-left: 2rem;
 }
+
+.movies-loadMore {
+  width: 100%;
+}
+
+.movies-loadMore button {
+  width: 95%;
+  height: 50px;
+  margin-bottom: 2rem;
+  font-size: 22px;
+  font-weight: 500;
+  font-family: var(--font-base);
+  color: white;
+  background-color: var(--color-lightBlue);
+  border-radius: 8px;
+  border-style: none;
+}

@@ -21,6 +21,8 @@ const App = () => {
   const [personId, setPersonId] = useState();
   const [searchTerm, setSearchTerm] = useState('');
 
+  console.log(searchTerm);
+
   return (
     <>
       <Navbar />
