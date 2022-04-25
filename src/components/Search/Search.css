@@ -34,6 +34,8 @@
 .searchBar {
   display: flex;
   width: 80%;
+  position: absolute;
+  margin-left: 6rem;
 }
 
 .search-label {
@@ -65,4 +67,31 @@
   width: 10%;
   border-style: none;
   background: linear-gradient(0deg, rgba(12, 209, 175, 1) 0%, rgba(26, 184, 217, 1) 100%);
+}
+
+@media screen and (max-width: 850px) {
+  .searchBar {
+    position: absolute;
+    bottom: 10%;
+    right: 12%;
+  }
+
+  .search-button {
+    width: 20%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .searchBar {
+    width: 90%;
+  }
+
+  .search-textField {
+    height: 20px;
+    font-size: 12px;
+  }
+
+  .search-button {
+    font-size: 12px;
+  }
 }

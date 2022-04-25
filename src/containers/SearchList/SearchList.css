@@ -40,3 +40,14 @@
 .searchList__right-column {
   margin-left: 2rem;
 }
+
+@media screen and (max-width: 850px) {
+  .results__container {
+    display: none;
+  }
+
+  .searchList__container {
+    width: 90%;
+    margin-left: -1.5rem;
+  }
+}

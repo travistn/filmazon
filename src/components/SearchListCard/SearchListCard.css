@@ -43,3 +43,23 @@
   font-size: 15px;
   margin-top: 1rem;
 }
+
+@media screen and (max-width: 850px) {
+  .searchList__card-content {
+    padding: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .searchList__card-content h4 {
+    font-size: 18px;
+  }
+
+  .searchList__card-content h5 {
+    font-size: 12px;
+  }
+
+  .searchList__card-content p {
+    font-size: 13px;
+  }
+}

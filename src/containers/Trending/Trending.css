@@ -108,3 +108,40 @@
 .trending__card-content p {
   margin-top: 0.2rem;
 }
+
+@media screen and (max-width: 850px) {
+  .trending__container {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .trending__header-title {
+    font-size: 20px;
+  }
+
+  .trending__card {
+    width: 130px;
+  }
+
+  .trending__card-image {
+    height: 180px;
+  }
+
+  .trending__card-content h2 {
+    font-size: 14px;
+  }
+
+  .trending__card-content p {
+    font-size: 12px;
+  }
+
+  .selector__wrapper {
+    width: 160px;
+    height: 30px;
+  }
+
+  .selected h4 {
+    font-size: 14px;
+  }
+}

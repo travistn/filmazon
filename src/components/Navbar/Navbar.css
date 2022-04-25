@@ -4,7 +4,6 @@
   height: 5rem;
   align-items: center;
   align-content: center;
-  position: relative;
 
   background: var(--color-navy);
 }
@@ -13,7 +12,6 @@
   font-family: var(--font-base);
   font-size: 30px;
   font-weight: 700;
-  margin-left: 20rem;
   letter-spacing: 1px;
 
   /* ff 3.6+ */
@@ -66,13 +64,6 @@
   -moz-text-fill-color: transparent;
 }
 
-.searchBar {
-  position: absolute;
-  top: 100;
-  right: 0;
-  margin-right: 10rem;
-}
-
 .navbar-links {
   display: flex;
   flex-direction: row;
@@ -86,4 +77,27 @@
 .movies-link {
   color: white;
   text-decoration: none;
+}
+
+@media screen and (min-width: 1440px) {
+  .navbar-logo {
+    margin-left: 20rem;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .navbar-logo {
+    margin-left: 3rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .navbar-logo {
+    font-size: 26px;
+    margin-left: 2rem;
+  }
+
+  .navbar-links {
+    font-size: 16px;
+  }
 }

@@ -12,18 +12,15 @@
   font-family: var(--font-base);
 }
 
-.column__wrapper {
-  width: 85%;
+.person-columns__wrapper {
+  width: 90%;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  align-content: flex-start;
 }
 
-.left__column {
+.person__page-left__column {
   display: flex;
   flex-direction: column;
-  min-width: 300px;
   width: 300px;
 }
 
@@ -66,7 +63,7 @@
   font-size: 15px;
 }
 
-.right__column {
+.person__page-right__column {
   max-width: 960px;
   margin-left: 2rem;
 }
@@ -103,4 +100,47 @@
 
 .person-credits h4 {
   font-size: 18px;
+}
+
+@media screen and (max-width: 850px) {
+  .person-picture {
+    height: 250px;
+  }
+
+  .person-biography p {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .person-picture {
+    height: 240px;
+  }
+
+  .person__information h3 {
+    font-size: 20px;
+  }
+
+  .person__socials {
+    font-size: 20px;
+  }
+
+  .person__information-header h5 {
+    font-size: 14px;
+  }
+  .person__information-header p {
+    font-size: 13px;
+  }
+
+  .person__page-right__column {
+    width: 80%;
+  }
+
+  .person-name {
+    font-size: 20px;
+  }
+
+  .person-biography p {
+    font-size: 13px;
+  }
 }

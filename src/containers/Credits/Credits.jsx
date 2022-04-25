@@ -50,7 +50,7 @@ export const Credits = ({ personId, setMovieId }) => {
             <table className='table__group'>
               <tbody>
                 <tr>
-                  <td>{formatYear(credit?.release_date)}</td>
+                  <td className='credit-releaseDate'>{formatYear(credit?.release_date)}</td>
                   <td className='credit-title' value={credit?.id} onClick={clickHandler}>
                     {credit?.title}
                     <span className='credits-characterAs'>

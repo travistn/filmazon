@@ -32,3 +32,25 @@
   font-size: 13px;
   margin-top: 0.3rem;
 }
+
+@media screen and (max-width: 400px) {
+  .cast__card {
+    width: 130px;
+    min-width: 130px;
+    height: 280px;
+    max-height: 290px;
+  }
+
+  .cast-img {
+    height: 200px;
+    width: 130px;
+  }
+
+  .cast__card-actor {
+    font-size: 14px;
+  }
+
+  .cast__card-character {
+    font-size: 12px;
+  }
+}

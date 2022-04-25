@@ -96,3 +96,77 @@
   display: flex;
   width: 70%;
 }
+
+@media screen and (max-width: 850px) {
+  .movieDetails__header {
+    width: 90%;
+    padding: 0;
+    max-height: 400px;
+  }
+
+  .movieDetails__header img {
+    height: 375px;
+  }
+
+  .movieDetails__header_info {
+    margin-top: 0;
+  }
+
+  .movieDetails__header_info-title h3 {
+    font-size: 28px;
+    margin-bottom: 0.3rem;
+  }
+
+  .cast__container {
+    width: 90%;
+    margin-bottom: -3rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .movieDetails__header__container {
+    height: 400px;
+  }
+
+  .movieDetails__header__container::before {
+    height: 400px;
+  }
+
+  .movieDetails__header {
+    max-height: 350px;
+  }
+
+  .movieDetails__header img {
+    height: 250px;
+    margin-top: 2.5rem;
+  }
+
+  .movieDetails__header_info {
+    margin-left: 1rem;
+    overflow-y: scroll;
+  }
+
+  .movieDetails__header_info-title h3 {
+    font-size: 20px;
+  }
+
+  .movieDetails__header_info-title p {
+    font-size: 10px;
+  }
+
+  .movieDetails__header_info-tagline {
+    font-size: 14px;
+  }
+
+  .movieDetails__header_info-overview {
+    font-size: 15px;
+  }
+
+  .movieDetails__header_info-overview-paragraph {
+    font-size: 12px;
+  }
+
+  .movieDetails__header_info-trailer p {
+    font-size: 14px;
+  }
+}

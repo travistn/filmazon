@@ -27,3 +27,33 @@
   align-content: center;
   justify-content: center;
 }
+
+@media screen and (max-width: 850px) {
+  .knownFor__container {
+    gap: 0;
+    margin-top: 1rem;
+  }
+
+  .knownFor__card img {
+    width: 160px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .knownFor__container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .knownFor__card {
+    width: 140px;
+  }
+
+  .knownFor__card img {
+    width: 140px;
+  }
+
+  .knownFor__card-text {
+    font-size: 14px;
+  }
+}

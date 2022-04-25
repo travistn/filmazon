@@ -48,8 +48,8 @@ const Person = ({ personId, setMovieId }) => {
   return (
     <div className='person__wrapper'>
       <div className='person__page'>
-        <div className='column__wrapper'>
-          <div className='left__column'>
+        <div className='person-columns__wrapper'>
+          <div className='person__page-left__column'>
             <img
               className='person-picture'
               src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2${person?.profile_path}`}
@@ -103,7 +103,7 @@ const Person = ({ personId, setMovieId }) => {
               </section>
             </div>
           </div>
-          <div className='right__column'>
+          <div className='person__page-right__column'>
             <section className='person-name'>
               <h2>{person?.name}</h2>
             </section>

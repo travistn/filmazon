@@ -50,3 +50,40 @@
   border-radius: 8px;
   border-style: none;
 }
+
+@media screen and (max-width: 850px) {
+  .movies__container {
+    width: 90%;
+  }
+
+  .movies-header h4 {
+    font-size: 30px;
+  }
+
+  .movies-sort-column {
+    display: none;
+  }
+
+  .movies-content {
+    flex-direction: column;
+  }
+
+  .movies-column {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .movies-header {
+    margin-left: 0.7rem;
+  }
+
+  .movies-header h4 {
+    font-size: 25px;
+  }
+
+  .movies-column {
+    justify-content: center;
+  }
+}

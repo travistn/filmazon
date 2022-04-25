@@ -45,3 +45,25 @@
   height: 100%;
   border-width: 0;
 }
+
+@media screen and (max-width: 850px) {
+  .trailer__background {
+    left: 4%;
+  }
+
+  .trailer__container {
+    width: 700px;
+    height: 575px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .trailer__background {
+    top: 18%;
+  }
+
+  .trailer__container {
+    width: 360px;
+    height: 265px;
+  }
+}

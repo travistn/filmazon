@@ -38,3 +38,25 @@ td {
   font-size: 16px;
   font-weight: 400;
 }
+
+@media screen and (max-width: 400px) {
+  .table__group {
+    border-bottom: 1px solid lightgray;
+  }
+
+  .credit-releaseDate {
+    font-size: 13px;
+  }
+
+  .credit-title {
+    font-size: 12px;
+  }
+
+  .credits-characterAs {
+    font-size: 12px;
+  }
+
+  .credits-characterName {
+    font-size: 12px;
+  }
+}

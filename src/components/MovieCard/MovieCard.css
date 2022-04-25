@@ -44,3 +44,26 @@
   font-size: 14px;
   color: gray;
 }
+
+@media screen and (max-width: 400px) {
+  .movie__card {
+    width: 150px;
+    height: 310px;
+  }
+
+  .movie__card img {
+    max-height: 230px;
+  }
+
+  .movie__card-title {
+    font-size: 13px;
+  }
+
+  .movie__card-releaseDate {
+    font-size: 11px;
+  }
+
+  .movie__card-content {
+    margin-top: 0rem;
+  }
+}

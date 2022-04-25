@@ -59,3 +59,19 @@
   color: var(--color-lightBlue);
   text-decoration: underline;
 }
+
+@media screen and (max-width: 850px) {
+  .similarMovies__container {
+    width: 90%;
+  }
+
+  .similarMovies__list {
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .similarMovies__container h3 {
+    font-size: 22px;
+  }
+}

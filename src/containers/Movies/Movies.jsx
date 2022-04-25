@@ -34,6 +34,7 @@ const Movies = ({ setMovieId }) => {
         <div className='movies-header'>
           <h4>Popular Movies</h4>
         </div>
+
         <div className='movies-content'>
           <div className='movies-sort-column'>
             <Sort />
