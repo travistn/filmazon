@@ -60,21 +60,21 @@ const Trending = ({ setMovieId }) => {
       </div>
 
       <div className='trending__list'>
-        {trendingMovies.map((movie) => (
+        {trendingMovies?.map((movie) => (
           <div key={movie.id}>
             <div className='trending__card'>
               <img
                 className='trending__card-image'
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`}
                 alt='movie-poster'
                 onClick={clickHandler}
-                value={movie.id}
+                value={movie?.id}
               />
               <div className='trending__card-content'>
-                <h2 onClick={clickHandler} value={movie.id}>
-                  {movie.title}
+                <h2 onClick={clickHandler} value={movie?.id}>
+                  {movie?.title}
                 </h2>
-                <p>{`${formatDate(movie.release_date)}`}</p>
+                <p>{`${formatDate(movie?.release_date)}`}</p>
               </div>
             </div>
           </div>

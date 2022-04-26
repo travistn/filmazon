@@ -20,7 +20,7 @@ const Header = ({ setMovies, searchTerm, setSearchTerm }) => {
   };
 
   const getRandomizedMovie = useCallback(async () => {
-    const random = await moviesList[Math.floor(Math.random() * moviesList.length)];
+    const random = await moviesList[Math.floor(Math.random() * moviesList?.length)];
     setRandomMovie(random);
   }, [moviesList]);
 
