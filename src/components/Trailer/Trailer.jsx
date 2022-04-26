@@ -2,7 +2,7 @@ import { IoMdClose } from 'react-icons/io';
 
 import './Trailer.css';
 
-const Trailer = ({ trailerLink, closeModal }) => {
+const Trailer = ({ trailerLink, closeModal, title }) => {
   return (
     <div className='trailer__background'>
       <div className='trailer__container'>
@@ -10,7 +10,7 @@ const Trailer = ({ trailerLink, closeModal }) => {
           <p>Play Trailer</p>
           <IoMdClose className='trailer__close' onClick={() => closeModal(false)} />
         </div>
-        <iframe className='trailer__video' src={trailerLink} allowFullScreen />
+        <iframe className='trailer__video' title={title} src={trailerLink} allowFullScreen />
       </div>
     </div>
   );

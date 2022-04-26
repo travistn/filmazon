@@ -36,7 +36,10 @@ const KnownFor = ({ name, personId, setMovieId }) => {
           person.id === personId &&
           person?.known_for.map((credit) => (
             <div className='knownFor__card' value={credit?.id} onClick={clickHandler}>
-              <img src={`https://image.tmdb.org/t/p/w185/${credit?.poster_path}`} />
+              <img
+                src={`https://image.tmdb.org/t/p/w185/${credit?.poster_path}`}
+                alt='movie-poster'
+              />
               <div className='knownFor__card-text'>
                 <p>{credit?.title}</p>
               </div>

@@ -28,7 +28,7 @@ const SimilarMovies = ({ movieId, setMovieId }) => {
 
   useEffect(() => {
     getSimilarMovies(movieId);
-  }, []);
+  }, [movieId]);
 
   useEffect(() => {
     window.scrollTo(0, 0);

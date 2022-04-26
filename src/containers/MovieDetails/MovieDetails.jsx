@@ -106,6 +106,7 @@ const MovieDetails = ({ movieId, setMovieId, setPersonId }) => {
                 <Trailer
                   trailerLink={`https://www.youtube.com/embed/${movieTrailer.key}`}
                   closeModal={setOpenModal}
+                  title={movieTrailer?.name}
                 />
               )}
             </div>
