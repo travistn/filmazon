@@ -29,8 +29,6 @@ const App = () => {
           path='/'
           element={
             <>
-              {/* <SearchMovie setMovies={setMovies} /> */}
-              {/* <Movies movies={movies} /> */}
               <Header setMovies={setMovies} searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
               <NowPlaying setMovieId={setMovieId} />
               <Trending setMovieId={setMovieId} />

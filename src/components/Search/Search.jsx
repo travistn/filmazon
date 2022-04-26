@@ -9,7 +9,7 @@ const Search = ({ searchTerm, setSearchTerm, setMovies }) => {
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
-    setSearchTerm(e.target.value);
+    setSearchTerm(e.target.value.split(' ').join('+'));
   };
 
   const handleMovieSearchClick = () => {
