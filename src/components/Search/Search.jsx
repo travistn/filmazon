@@ -36,8 +36,8 @@ const Search = ({ searchTerm, setSearchTerm, setMovies, setTvShows }) => {
 
       const data = await response.json();
 
-      setMovies(data.results.filter((movie) => movie?.media_type === 'movie'));
-      setTvShows(data.results.filter((tv) => tv?.media_type === 'tv'));
+      setMovies(data.results?.filter((movie) => movie?.media_type === 'movie'));
+      setTvShows(data.results?.filter((tv) => tv?.media_type === 'tv'));
     },
     [setMovies, setTvShows]
   );
