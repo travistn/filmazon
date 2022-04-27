@@ -14,7 +14,7 @@ const Search = ({ searchTerm, setSearchTerm, setMovies }) => {
 
   const handleMovieSearchClick = () => {
     getSearch(searchTerm);
-    navigate(`/search/movie/${searchTerm}`);
+    navigate(`/search&query=${searchTerm}`);
 
     document.getElementById('searchInput').value = '';
   };
@@ -28,10 +28,23 @@ const Search = ({ searchTerm, setSearchTerm, setMovies }) => {
     }
   };
 
+  // const getSearch = useCallback(
+  //   async (title) => {
+  //     const response = await fetch(
+  //       `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${title}&page=1&include_adult=false`
+  //     );
+
+  //     const data = await response.json();
+
+  //     setMovies(data.results);
+  //   },
+  //   [setMovies]
+  // );
+
   const getSearch = useCallback(
     async (title) => {
       const response = await fetch(
-        `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${title}&page=1&include_adult=false`
+        `https://api.themoviedb.org/3/search/multi?api_key=${apiKey}&language=en-US&query=${title}&page=1&include_adult=false`
       );
 
       const data = await response.json();

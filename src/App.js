@@ -45,7 +45,7 @@ const App = () => {
           element={<Person personId={personId} setMovieId={setMovieId} />}
         />
         <Route
-          path={`search/movie/${searchTerm}`}
+          path={`search&query=${searchTerm}`}
           element={<SearchList movies={movies} setMovieId={setMovieId} />}
         />
         <Route path={'movies'} element={<Movies setMovieId={setMovieId} />} />
