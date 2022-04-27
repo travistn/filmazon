@@ -15,8 +15,8 @@ const App = () => {
   const [movies, setMovies] = useState([]);
   const [movieId, setMovieId] = useState();
 
-  // const [tvShows, setTvShows] = useState([]);
-  // const [tvShowId, setTvShowId] = useState();
+  const [tvShows, setTvShows] = useState([]);
+  const [tvShowId, setTvShowId] = useState();
 
   const [personId, setPersonId] = useState();
   const [searchTerm, setSearchTerm] = useState('');
@@ -29,7 +29,12 @@ const App = () => {
           path='/'
           element={
             <>
-              <Header setMovies={setMovies} searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+              <Header
+                setMovies={setMovies}
+                setTvShows={setTvShows}
+                searchTerm={searchTerm}
+                setSearchTerm={setSearchTerm}
+              />
               <NowPlaying setMovieId={setMovieId} />
               <Trending setMovieId={setMovieId} />
             </>
@@ -46,7 +51,7 @@ const App = () => {
         />
         <Route
           path={`search&query=${searchTerm}`}
-          element={<SearchList movies={movies} setMovieId={setMovieId} />}
+          element={<SearchList movies={movies} setMovieId={setMovieId} tvShows={tvShows} />}
         />
         <Route path={'movies'} element={<Movies setMovieId={setMovieId} />} />
       </Routes>

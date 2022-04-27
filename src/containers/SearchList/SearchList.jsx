@@ -1,13 +1,10 @@
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
 
 import SearchListCard from '../../components/SearchListCard/SearchListCard';
 import './SearchList.css';
 
-const SearchList = ({ movies, setMovieId }) => {
+const SearchList = ({ movies, tvShows, setMovieId }) => {
   const [category, setCategory] = useState('movie');
-
-  const sortMovieResults = movies?.filter((movie) => movie?.media_type === 'movie');
-  const sortTVResults = movies?.filter((movie) => movie?.media_type === 'tv');
 
   const changeCategory = (e) => {
     setCategory(e.target.id);
@@ -31,7 +28,7 @@ const SearchList = ({ movies, setMovieId }) => {
                     className={`results-num ${
                       category === 'movie' ? 'results-num-selected' : 'results-num-unselected'
                     }`}>
-                    {sortMovieResults.length}
+                    {movies.length}
                   </div>
                 </div>
                 <div className={`results-label ${category === 'tv' ? 'results-selected' : ''}`}>
@@ -42,7 +39,7 @@ const SearchList = ({ movies, setMovieId }) => {
                     className={`results-num ${
                       category === 'tv' ? 'results-num-selected' : 'results-num-unselected'
                     }`}>
-                    {sortTVResults.length}
+                    {tvShows.length}
                   </div>
                 </div>
               </div>
@@ -53,13 +50,13 @@ const SearchList = ({ movies, setMovieId }) => {
         <div className='searchList__right-column'>
           {category === 'movie' && (
             <>
-              {sortMovieResults.map((movie) => (
+              {movies?.map((movie) => (
                 <SearchListCard
                   image={`https://www.themoviedb.org/t/p/w94_and_h141_bestv2${movie?.poster_path}`}
                   title={movie?.title}
                   releaseDate={movie?.release_date}
                   overview={movie?.overview}
-                  movieId={movie?.id}
+                  showId={movie?.id}
                   setMovieId={setMovieId}
                   key={movie?.id}
                 />
@@ -68,15 +65,15 @@ const SearchList = ({ movies, setMovieId }) => {
           )}
           {category === 'tv' && (
             <>
-              {sortTVResults.map((movie) => (
+              {tvShows?.map((tv) => (
                 <SearchListCard
-                  image={`https://www.themoviedb.org/t/p/w94_and_h141_bestv2${movie?.poster_path}`}
-                  title={movie?.name}
-                  releaseDate={movie?.release_date}
-                  overview={movie?.overview}
-                  movieId={movie?.id}
+                  image={`https://www.themoviedb.org/t/p/w94_and_h141_bestv2${tv?.poster_path}`}
+                  title={tv?.name}
+                  releaseDate={tv?.first_air_date}
+                  overview={tv?.overview}
+                  showId={tv?.id}
                   setMovieId={setMovieId}
-                  key={movie?.id}
+                  key={tv?.id}
                 />
               ))}
             </>

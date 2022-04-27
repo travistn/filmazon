@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 
 import './SearchListCard.css';
 
-const SearchListCard = ({ image, title, releaseDate, overview, movieId, setMovieId }) => {
+const SearchListCard = ({ image, title, releaseDate, overview, showId, setMovieId }) => {
   const navigate = useNavigate();
 
   const clickHandler = (e) => {
@@ -17,11 +17,11 @@ const SearchListCard = ({ image, title, releaseDate, overview, movieId, setMovie
         className='searchList__card-image'
         src={image}
         onClick={clickHandler}
-        value={movieId}
+        value={showId}
         alt='card-poster'
       />
       <div className='searchList__card-content'>
-        <h4 onClick={clickHandler} value={movieId}>
+        <h4 onClick={clickHandler} value={showId}>
           {title}
         </h4>
         <h5>{releaseDate}</h5>
