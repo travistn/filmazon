@@ -5,6 +5,7 @@ import Navbar from './components/Navbar/Navbar';
 import Header from './components/Header/Header';
 import Trending from './containers/Trending/Trending';
 import MovieDetails from './containers/MovieDetails/MovieDetails';
+import TVDetails from './containers/TVDetails/TVDetails';
 import Person from './containers/Person/Person';
 import SearchList from './containers/SearchList/SearchList';
 import Movies from './containers/Movies/Movies';
@@ -16,7 +17,7 @@ const App = () => {
   const [movieId, setMovieId] = useState();
 
   const [tvShows, setTvShows] = useState([]);
-  const [tvShowId, setTvShowId] = useState();
+  const [tvId, setTvId] = useState();
 
   const [personId, setPersonId] = useState();
   const [searchTerm, setSearchTerm] = useState('');
@@ -46,12 +47,23 @@ const App = () => {
           }
         />
         <Route
+          path={`tv/${tvId}`}
+          element={<TVDetails tvId={tvId} setTvId={setTvId} setPersonId={setPersonId} />}
+        />
+        <Route
           path={`person/${personId}`}
           element={<Person personId={personId} setMovieId={setMovieId} />}
         />
         <Route
           path={`search&query=${searchTerm}`}
-          element={<SearchList movies={movies} setMovieId={setMovieId} tvShows={tvShows} />}
+          element={
+            <SearchList
+              movies={movies}
+              setMovieId={setMovieId}
+              tvShows={tvShows}
+              setTvId={setTvId}
+            />
+          }
         />
         <Route path={'movies'} element={<Movies setMovieId={setMovieId} />} />
       </Routes>

@@ -22,7 +22,7 @@ const Search = ({ searchTerm, setSearchTerm, setMovies, setTvShows }) => {
   const handleEnterKey = (e) => {
     if (e.key === 'Enter') {
       getSearch(searchTerm);
-      navigate(`/search/movie/${searchTerm}`);
+      navigate(`/search&query=${searchTerm}`);
 
       document.getElementById('searchInput').value = '';
     }

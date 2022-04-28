@@ -1,0 +1,153 @@
+.tvDetails__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  border-top: 30px solid white;
+}
+
+.tvDetails__header__container::before {
+  content: '';
+  position: absolute;
+  background-image: linear-gradient(
+    to right,
+    rgba(52.5, 10.5, 10.5, 1) 150px,
+    rgba(52.5, 10.5, 10.5, 0.84) 100%
+  );
+  width: 100%;
+  height: 500px;
+}
+
+.tvDetails__header__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 500px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right -200px top;
+}
+
+.tvDetails__header {
+  display: flex;
+  flex-direction: row;
+  font-family: var(--font-base);
+  color: white;
+  z-index: 1;
+  width: 80%;
+  padding: 6rem;
+}
+
+.tvDetails__header__container::before {
+  content: '';
+  position: absolute;
+  background-image: linear-gradient(
+    to right,
+    rgba(52.5, 10.5, 10.5, 1) 150px,
+    rgba(52.5, 10.5, 10.5, 0.84) 100%
+  );
+  width: 100%;
+  height: 500px;
+}
+
+.tvDetails__header-poster {
+  height: 440px;
+  border-radius: 10px;
+}
+
+.tvDetails__header_info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2.5rem;
+  margin-top: 2rem;
+}
+
+.tvDetails__header_info-title h3 {
+  font-size: 35px;
+}
+
+.tvDetails__header_info-title span {
+  margin-left: 0.5rem;
+  font-weight: 400;
+  color: lightgray;
+}
+
+.tvDetails__header_info-title p {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.tvDetails__header_info-tagline {
+  color: gray;
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+.tvDetails__header_info-overview {
+  font-size: 20px;
+  margin-top: 1rem;
+}
+
+.tvDetails__header_info-overview-paragraph {
+  margin-top: 1rem;
+}
+
+.tvDetails__header_info-trailer {
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
+.tvDetails__header_info-trailer:hover {
+  color: gray;
+}
+
+@media screen and (max-width: 400px) {
+  .tvDetails__header__container {
+    height: 400px;
+  }
+
+  .tvDetails__header__container::before {
+    height: 400px;
+  }
+
+  .tvDetails__header {
+    max-height: 350px;
+  }
+
+  .tvDetails__header img {
+    height: 250px;
+    margin-top: 2.5rem;
+  }
+
+  .tvDetails__header_info {
+    margin-left: 1rem;
+    overflow-y: scroll;
+  }
+
+  .tvDetails__header_info-title h3 {
+    font-size: 20px;
+  }
+
+  .tvDetails__header_info-title p {
+    font-size: 10px;
+  }
+
+  .tvDetails__header_info-tagline {
+    font-size: 14px;
+  }
+
+  .tvDetails__header_info-overview {
+    font-size: 15px;
+  }
+
+  .tvDetails__header_info-overview-paragraph {
+    font-size: 12px;
+  }
+
+  .tvDetails__header_info-trailer p {
+    font-size: 14px;
+  }
+}

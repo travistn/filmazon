@@ -3,7 +3,7 @@ import { useState } from 'react';
 import SearchListCard from '../../components/SearchListCard/SearchListCard';
 import './SearchList.css';
 
-const SearchList = ({ movies, tvShows, setMovieId }) => {
+const SearchList = ({ movies, tvShows, setMovieId, setTvId }) => {
   const [category, setCategory] = useState('movie');
 
   const changeCategory = (e) => {
@@ -58,6 +58,7 @@ const SearchList = ({ movies, tvShows, setMovieId }) => {
                   overview={movie?.overview}
                   showId={movie?.id}
                   setMovieId={setMovieId}
+                  mediaCategory={category}
                   key={movie?.id}
                 />
               ))}
@@ -72,7 +73,8 @@ const SearchList = ({ movies, tvShows, setMovieId }) => {
                   releaseDate={tv?.first_air_date}
                   overview={tv?.overview}
                   showId={tv?.id}
-                  setMovieId={setMovieId}
+                  setTvId={setTvId}
+                  mediaCategory={category}
                   key={tv?.id}
                 />
               ))}

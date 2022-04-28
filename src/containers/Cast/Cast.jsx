@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 import { CastCard } from '../../components/CastCard/CastCard';
 import blank_profile from '../../assets/blank-profile.jpg';
@@ -6,22 +6,25 @@ import './Cast.css';
 
 const apiKey = process.env.REACT_APP_MOVIEDB_API_KEY;
 
-const Cast = ({ movieId, setPersonId }) => {
+const Cast = ({ mediaType, showId, setPersonId }) => {
   const [cast, setCast] = useState([]);
 
-  const getCast = async (movieId) => {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${apiKey}&language=en-US`
-    );
+  const getCast = useCallback(
+    async (showId) => {
+      const response = await fetch(
+        `https://api.themoviedb.org/3/${mediaType}/${showId}/credits?api_key=${apiKey}&language=en-US`
+      );
 
-    const data = await response.json();
+      const data = await response.json();
 
-    setCast(data.cast);
-  };
+      setCast(data.cast);
+    },
+    [mediaType]
+  );
 
   useEffect(() => {
-    getCast(movieId);
-  }, [movieId]);
+    getCast(showId);
+  }, [showId, getCast]);
 
   return (
     <div className='cast'>
