@@ -9,8 +9,6 @@ const SimilarMedia = ({ mediaType, showId, setShow }) => {
   const [similarMedia, setSimilarMedia] = useState([]);
   const navigate = useNavigate();
 
-  console.log(similarMedia);
-
   const getSimilarMedia = useCallback(
     async (showId) => {
       const response = await fetch(

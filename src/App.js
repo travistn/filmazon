@@ -52,7 +52,7 @@ const App = () => {
         />
         <Route
           path={`person/${personId}`}
-          element={<Person personId={personId} setMovieId={setMovieId} />}
+          element={<Person personId={personId} setMovieId={setMovieId} setTvId={setTvId} />}
         />
         <Route
           path={`search&query=${searchTerm}`}

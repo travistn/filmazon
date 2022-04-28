@@ -16,7 +16,7 @@ const gender = (num) => {
   }
 };
 
-const Person = ({ personId, setMovieId }) => {
+const Person = ({ personId, setMovieId, setTvId }) => {
   const [person, setPerson] = useState();
   const [socials, setSocials] = useState();
 
@@ -113,7 +113,12 @@ const Person = ({ personId, setMovieId }) => {
             </section>
             <section className='person-knownFor'>
               <h4>Known For</h4>
-              <KnownFor name={person?.name} personId={person?.id} setMovieId={setMovieId} />
+              <KnownFor
+                name={person?.name}
+                personId={person?.id}
+                setMovieId={setMovieId}
+                setTvId={setTvId}
+              />
             </section>
             <section className='person-credits'>
               <div>
