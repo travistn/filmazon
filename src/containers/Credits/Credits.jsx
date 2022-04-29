@@ -9,14 +9,18 @@ const formatYear = (date) => {
   return date?.slice(0, 4);
 };
 
-export const Credits = ({ personId, setMovieId }) => {
+export const Credits = ({ personId, setMovieId, setTvId }) => {
   const [credits, setCredits] = useState();
   const navigate = useNavigate();
 
   const clickHandler = (e) => {
+    const mediaType = e.currentTarget.getAttribute('mediaType');
     const id = e.currentTarget.getAttribute('value');
-    setMovieId(id);
-    navigate(`/movie/${id}`);
+
+    if (mediaType === 'movie') setMovieId(id);
+    if (mediaType === 'tv') setTvId(id);
+
+    navigate(`/${mediaType}/${id}`);
   };
 
   const getCredits = async (personId) => {
@@ -26,6 +30,8 @@ export const Credits = ({ personId, setMovieId }) => {
 
     const data = await response.json();
 
+    console.log(data);
+
     setCredits(data);
   };
 
@@ -34,7 +40,7 @@ export const Credits = ({ personId, setMovieId }) => {
   }, [personId]);
 
   const creditsContainingTitle = credits?.cast.filter((credit) => {
-    return credit.title != null;
+    return credit.title || credit.name != null;
   });
 
   return (
@@ -42,17 +48,31 @@ export const Credits = ({ personId, setMovieId }) => {
       <tbody>
         {creditsContainingTitle
           ?.sort((a, b) => {
-            if (formatYear(a.release_date) < formatYear(b.release_date)) return 1;
-            else if (formatYear(a.release_date) > formatYear(b.release_date)) return -1;
+            if (
+              formatYear(a.release_date || a.first_air_date) <
+              formatYear(b.release_date || b.first_air_date)
+            )
+              return 1;
+            else if (
+              formatYear(a.release_date || a.first_air_date) >
+              formatYear(b.release_date || b.first_air_date)
+            )
+              return -1;
             else return 0;
           })
           .map((credit) => (
             <table className='table__group'>
               <tbody>
                 <tr>
-                  <td className='credit-releaseDate'>{formatYear(credit?.release_date)}</td>
-                  <td className='credit-title' value={credit?.id} onClick={clickHandler}>
-                    {credit?.title}
+                  <td className='credit-releaseDate'>
+                    {formatYear(credit?.release_date || credit?.first_air_date)}
+                  </td>
+                  <td
+                    className='credit-title'
+                    value={credit?.id}
+                    mediaType={credit?.media_type}
+                    onClick={clickHandler}>
+                    {credit?.title || credit?.name}
                     <span className='credits-characterAs'>
                       {' as '}
                       <span className='credits-characterName'>{credit?.character}</span>
