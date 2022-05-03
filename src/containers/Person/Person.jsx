@@ -122,7 +122,6 @@ const Person = ({ personId, setMovieId, setTvId }) => {
             </section>
             <section className='person-credits'>
               <div>
-                <h4 id='acting'>Acting</h4>
                 <Credits personId={personId} setMovieId={setMovieId} setTvId={setTvId} />
               </div>
             </section>

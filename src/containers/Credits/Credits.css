@@ -1,3 +1,22 @@
+.credits__header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.credits-filter {
+  margin-left: auto;
+  margin-right: 2rem;
+}
+
+.credits-filter h5 {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 400;
+}
+
 .credits__table {
   width: 100%;
   margin-top: 1rem;
