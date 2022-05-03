@@ -58,7 +58,7 @@ td {
   font-weight: 400;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 415px) {
   .table__group {
     border-bottom: 1px solid lightgray;
   }

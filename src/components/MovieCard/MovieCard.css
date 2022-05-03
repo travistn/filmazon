@@ -45,7 +45,7 @@
   color: gray;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 415px) {
   .movie__card {
     width: 150px;
     height: 310px;

@@ -74,9 +74,9 @@
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 415px) {
   .movies-header {
-    margin-left: 0.7rem;
+    margin-left: 1.5rem;
   }
 
   .movies-header h4 {

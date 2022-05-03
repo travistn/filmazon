@@ -112,7 +112,7 @@
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 415px) {
   .person-picture {
     height: 240px;
   }

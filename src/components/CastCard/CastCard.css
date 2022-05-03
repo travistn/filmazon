@@ -33,7 +33,7 @@
   margin-top: 0.3rem;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 415px) {
   .cast__card {
     width: 130px;
     min-width: 130px;

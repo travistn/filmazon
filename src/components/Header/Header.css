@@ -52,7 +52,7 @@
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 415px) {
   .header__container {
     height: 200px;
   }
