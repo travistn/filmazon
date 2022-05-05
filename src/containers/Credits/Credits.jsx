@@ -42,6 +42,20 @@ export const Credits = ({ personId, setMovieId, setTvId }) => {
     return credit.title || credit.name != null;
   });
 
+  const sortedTitles = creditsContainingTitle?.sort((a, b) => {
+    return a.release_date < b.first_air_date ||
+      a.first_air_date < b.release_date ||
+      a.release_date < b.release_date ||
+      a.first_air_date < b.first_air_date
+      ? 1
+      : a.release_date > b.first_air_date ||
+        a.first_air_date > b.release_date ||
+        a.release_date > b.release_date ||
+        a.first_air_date > b.first_air_date
+      ? -1
+      : 0;
+  });
+
   return (
     <>
       <div className='credits__header'>
@@ -57,42 +71,28 @@ export const Credits = ({ personId, setMovieId, setTvId }) => {
       </div>
       <table className='credits__table'>
         <tbody>
-          {creditsContainingTitle
-            ?.sort((a, b) => {
-              if (
-                formatYear(a.release_date || a.first_air_date) <
-                formatYear(b.release_date || b.first_air_date)
-              )
-                return 1;
-              else if (
-                formatYear(a.release_date || a.first_air_date) >
-                formatYear(b.release_date || b.first_air_date)
-              )
-                return -1;
-              else return 0;
-            })
-            .map((credit) => (
-              <table className='table__group'>
-                <tbody>
-                  <tr>
-                    <td className='credit-releaseDate'>
-                      {formatYear(credit?.release_date || credit?.first_air_date)}
-                    </td>
-                    <td
-                      className='credit-title'
-                      value={credit?.id}
-                      mediaType={credit?.media_type}
-                      onClick={clickHandler}>
-                      {credit?.title || credit?.name}
-                      <span className='credits-characterAs'>
-                        {' as '}
-                        <span className='credits-characterName'>{credit?.character}</span>
-                      </span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            ))}
+          {sortedTitles?.map((credit) => (
+            <table className='table__group'>
+              <tbody key={credit?.id}>
+                <tr>
+                  <td className='credit-releaseDate'>
+                    {formatYear(credit?.release_date || credit?.first_air_date)}
+                  </td>
+                  <td
+                    className='credit-title'
+                    value={credit?.id}
+                    mediaType={credit?.media_type}
+                    onClick={clickHandler}>
+                    {credit?.title || credit?.name}
+                    <span className='credits-characterAs'>
+                      {' as '}
+                      <span className='credits-characterName'>{credit?.character}</span>
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          ))}
         </tbody>
       </table>
     </>
