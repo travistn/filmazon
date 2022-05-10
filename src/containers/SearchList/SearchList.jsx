@@ -1,13 +1,22 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import SearchListCard from '../../components/SearchListCard/SearchListCard';
 import './SearchList.css';
 
-const SearchList = ({ movies, tvShows, setMovieId, setTvId }) => {
+const SearchList = ({ movies, tvShows, setMovieId, setTvId, people, setPersonId }) => {
   const [category, setCategory] = useState('movie');
+  const navigate = useNavigate();
 
   const changeCategory = (e) => {
     setCategory(e.target.id);
+  };
+
+  const clickHandler = (e) => {
+    const id = e.currentTarget.getAttribute('value');
+
+    setPersonId(id);
+    navigate(`/person/${id}`);
   };
 
   return (
@@ -40,6 +49,17 @@ const SearchList = ({ movies, tvShows, setMovieId, setTvId }) => {
                       category === 'tv' ? 'results-num-selected' : 'results-num-unselected'
                     }`}>
                     {tvShows.length}
+                  </div>
+                </div>
+                <div className={`results-label ${category === 'person' ? 'results-selected' : ''}`}>
+                  <h5 id='person' onClick={changeCategory}>
+                    People
+                  </h5>
+                  <div
+                    className={`results-num ${
+                      category === 'person' ? 'results-num-selected' : 'results-num-unselected'
+                    }`}>
+                    {people.length}
                   </div>
                 </div>
               </div>
@@ -77,6 +97,29 @@ const SearchList = ({ movies, tvShows, setMovieId, setTvId }) => {
                   mediaCategory={category}
                   key={tv?.id}
                 />
+              ))}
+            </>
+          )}
+          {category === 'person' && (
+            <>
+              {people?.map((person) => (
+                <div className='searchList-person__card'>
+                  <img
+                    src={`https://www.themoviedb.org/t/p/w90_and_h90_face/${person?.profile_path}`}
+                    alt='profile-pic'
+                    value={person?.id}
+                    onClick={clickHandler}
+                  />
+                  <div className='searchList-person__card-content'>
+                    <h5 value={person?.id} onClick={clickHandler}>
+                      {person?.name}
+                    </h5>
+                    <p>
+                      {person?.known_for_department} •
+                      {person?.known_for.map((show) => ` ${show?.original_title || show?.name}, `)}
+                    </p>
+                  </div>
+                </div>
               ))}
             </>
           )}

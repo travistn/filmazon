@@ -5,7 +5,7 @@ import './Search.css';
 
 const apiKey = process.env.REACT_APP_MOVIEDB_API_KEY;
 
-const Search = ({ searchTerm, setSearchTerm, setMovies, setTvShows }) => {
+const Search = ({ searchTerm, setSearchTerm, setMovies, setTvShows, setPeople }) => {
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
@@ -38,8 +38,9 @@ const Search = ({ searchTerm, setSearchTerm, setMovies, setTvShows }) => {
 
       setMovies(data.results?.filter((movie) => movie?.media_type === 'movie'));
       setTvShows(data.results?.filter((tv) => tv?.media_type === 'tv'));
+      setPeople(data.results?.filter((person) => person?.media_type === 'person'));
     },
-    [setMovies, setTvShows]
+    [setMovies, setTvShows, setPeople]
   );
 
   useEffect(() => {

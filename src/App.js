@@ -20,6 +20,7 @@ const App = () => {
   const [tvId, setTvId] = useState();
 
   const [personId, setPersonId] = useState();
+  const [people, setPeople] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
   return (
@@ -33,6 +34,7 @@ const App = () => {
               <Header
                 setMovies={setMovies}
                 setTvShows={setTvShows}
+                setPeople={setPeople}
                 searchTerm={searchTerm}
                 setSearchTerm={setSearchTerm}
               />
@@ -62,6 +64,8 @@ const App = () => {
               setMovieId={setMovieId}
               tvShows={tvShows}
               setTvId={setTvId}
+              people={people}
+              setPersonId={setPersonId}
             />
           }
         />

@@ -5,7 +5,7 @@ import './Header.css';
 
 const apiKey = process.env.REACT_APP_MOVIEDB_API_KEY;
 
-const Header = ({ setMovies, setTvShows, searchTerm, setSearchTerm }) => {
+const Header = ({ setMovies, setTvShows, searchTerm, setSearchTerm, setPeople }) => {
   const [moviesList, setMoviesList] = useState([]);
   const [randomMovie, setRandomMovie] = useState({});
 
@@ -46,6 +46,7 @@ const Header = ({ setMovies, setTvShows, searchTerm, setSearchTerm }) => {
         <Search
           setMovies={setMovies}
           setTvShows={setTvShows}
+          setPeople={setPeople}
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
         />

@@ -52,7 +52,7 @@
 
 @media screen and (max-width: 415px) {
   .searchList__card-content h4 {
-    font-size: 18px;
+    font-size: 14px;
   }
 
   .searchList__card-content h5 {
@@ -60,6 +60,6 @@
   }
 
   .searchList__card-content p {
-    font-size: 13px;
+    font-size: 12px;
   }
 }
