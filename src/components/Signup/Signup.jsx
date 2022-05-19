@@ -68,7 +68,7 @@ const Signup = () => {
           <p>
             Need an account?{' '}
             <Link to='/login' className='signup__form-link'>
-              Sign Up
+              Log In
             </Link>
           </p>
         </form>

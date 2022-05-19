@@ -55,7 +55,7 @@ const Login = () => {
           <p>
             Already have an account?{' '}
             <Link to='/signup' className='login__form-link'>
-              Log In
+              Sign Up
             </Link>
           </p>
         </form>
