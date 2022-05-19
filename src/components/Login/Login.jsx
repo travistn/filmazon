@@ -51,7 +51,7 @@ const Login = () => {
             <label>Password</label>
             <input type='password' required onChange={handlePassword} />
           </div>
-          <button>Log In</button>
+          <button disabled={loading}>Log In</button>
           <p>
             Already have an account?{' '}
             <Link to='/signup' className='login__form-link'>

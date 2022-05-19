@@ -64,7 +64,7 @@ const Signup = () => {
             <label>Password Confirmation</label>
             <input type='password' required onChange={handlePasswordConfirm} />
           </div>
-          <button>Sign Up</button>
+          <button disabled={loading}>Sign Up</button>
           <p>
             Need an account?{' '}
             <Link to='/login' className='signup__form-link'>
