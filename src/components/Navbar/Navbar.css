@@ -4,12 +4,13 @@
   height: 5rem;
   align-items: center;
   align-content: center;
+  position: relative;
 
   background: var(--color-navy);
+  font-family: var(--font-base);
 }
 
 .navbar-logo {
-  font-family: var(--font-base);
   font-size: 30px;
   font-weight: 700;
   letter-spacing: 1px;
@@ -67,7 +68,6 @@
 .navbar-links {
   display: flex;
   flex-direction: row;
-  font-family: var(--font-base);
   font-size: 17px;
   font-weight: 500;
   margin-left: 2rem;
@@ -75,6 +75,12 @@
 }
 
 .movies-link {
+  color: white;
+  text-decoration: none;
+}
+
+.login-link {
+  margin-left: 2rem;
   color: white;
   text-decoration: none;
 }

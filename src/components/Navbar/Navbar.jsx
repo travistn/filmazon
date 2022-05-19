@@ -12,9 +12,9 @@ const Navbar = () => {
         <Link className='movies-link' to='/movies'>
           Movies
         </Link>
-      </div>
-      <div className='searchBar'>
-        {/* <Search setMovies={setMovies} searchTerm={searchTerm} setSearchTerm={setSearchTerm} /> */}
+        <Link className='login-link' to='/signup'>
+          Login
+        </Link>
       </div>
     </nav>
   );

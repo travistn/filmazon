@@ -3,6 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/Navbar/Navbar';
 import Header from './components/Header/Header';
+import Signup from './components/Signup/Signup';
+import Login from './components/Login/Login';
 import Trending from './containers/Trending/Trending';
 import MovieDetails from './containers/MovieDetails/MovieDetails';
 import TVDetails from './containers/TVDetails/TVDetails';
@@ -70,6 +72,8 @@ const App = () => {
           }
         />
         <Route path={'movies'} element={<Movies setMovieId={setMovieId} />} />
+        <Route path={'signup'} element={<Signup />} />\
+        <Route path={'login'} element={<Login />} />
       </Routes>
     </>
   );
