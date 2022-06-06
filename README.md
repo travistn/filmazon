@@ -1,7 +1,7 @@
 # filmazon
 A web application for film buffs to get anything movie and tv related!
 
-#### [Live Demo] (https://expenses-chart-tn.netlify.app/)
+#### [Live Demo](https://filmazon-tn.netlify.app/)
 
 #### Technologies used to create the project:
 * React.js
