@@ -104,6 +104,32 @@
   color: gray;
 }
 
+@media screen and (max-width: 850px) {
+  .tvDetails__header {
+    width: 90%;
+    padding: 0;
+    max-height: 400px;
+  }
+
+  .tvDetails__header img {
+    height: 375px;
+  }
+
+  .tvDetails__header_info {
+    margin-top: 0;
+  }
+
+  .tvDetails__header_info-title h3 {
+    font-size: 28px;
+    margin-bottom: 0.3rem;
+  }
+
+  .cast__container {
+    width: 90%;
+    margin-bottom: -3rem;
+  }
+}
+
 @media screen and (max-width: 415px) {
   .tvDetails__header__container {
     height: 400px;

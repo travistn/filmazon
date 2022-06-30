@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import Trailer from '../../components/Trailer/Trailer';
@@ -28,7 +28,6 @@ const TVDetails = () => {
   const [tvInfo, setTvInfo] = useState({});
   const [tvTrailer, setTvTrailer] = useState();
   const [openModal, setOpenModal] = useState(false);
-  const ref = useRef();
   const { tvId } = useParams();
 
   const mediaType = 'tv';
@@ -53,23 +52,6 @@ const TVDetails = () => {
     setTvTrailer(data.results?.find((tv) => tv.type === 'Trailer'));
   };
 
-  const OnOutsideClick = (ref, handler) => {
-    useEffect(() => {
-      const listener = (event) => {
-        if (!ref.current || ref.current.contains(event.target)) {
-          return;
-        }
-        handler(event);
-      };
-      document.addEventListener('click', listener);
-      return () => {
-        document.addEventListener('click', listener);
-      };
-    }, [ref, handler]);
-  };
-
-  OnOutsideClick(ref, () => setOpenModal(false));
-
   useEffect(() => {
     lookupTVDetails(tvId);
     getTVTrailer(tvId);
@@ -79,7 +61,6 @@ const TVDetails = () => {
     <div className='tvDetails__wrapper'>
       <div
         className='tvDetails__header__container'
-        ref={ref}
         style={{
           backgroundImage: `url(https://image.tmdb.org/t/p/w1920_and_h800_multi_faces/${tvInfo.backdrop_path})`,
         }}>
@@ -111,7 +92,8 @@ const TVDetails = () => {
               {openModal && (
                 <Trailer
                   trailerLink={`https://www.youtube.com/embed/${tvTrailer?.key}`}
-                  closeModal={setOpenModal}
+                  openModal={openModal}
+                  setOpenModal={setOpenModal}
                   title={tvTrailer?.name}
                 />
               )}
