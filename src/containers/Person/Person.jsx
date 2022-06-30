@@ -17,7 +17,7 @@ const gender = (num) => {
   }
 };
 
-const Person = ({ setMovieId, setTvId }) => {
+const Person = () => {
   const [person, setPerson] = useState();
   const [socials, setSocials] = useState();
   const { personId } = useParams();
