@@ -1,15 +1,19 @@
-import { useEffect, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useCallback, useContext } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
+import { AppContext } from '../../contexts/AppContext';
 import './Search.css';
 
 const apiKey = process.env.REACT_APP_MOVIEDB_API_KEY;
 
-const Search = ({ searchTerm, setSearchTerm, setMovies, setTvShows, setPeople }) => {
+const Search = () => {
   const navigate = useNavigate();
+  let { searchTerm } = useParams();
+
+  const { setMovies, setTvShows, setPeople } = useContext(AppContext);
 
   const handleInputChange = (e) => {
-    setSearchTerm(e.target.value.split(' ').join('+'));
+    searchTerm = e.target.value.split(' ').join('+');
   };
 
   const handleMovieSearchClick = () => {

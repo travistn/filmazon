@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useParams } from 'react-router-dom';
 
 import Trailer from '../../components/Trailer/Trailer';
 import Cast from '../Cast/Cast';
@@ -23,11 +24,12 @@ const convertMinutesToHours = (n) => {
   return `${rhours}h ${rminutes}m`;
 };
 
-const TVDetails = ({ tvId, setTvId, setPersonId }) => {
+const TVDetails = () => {
   const [tvInfo, setTvInfo] = useState({});
   const [tvTrailer, setTvTrailer] = useState();
   const [openModal, setOpenModal] = useState(false);
   const ref = useRef();
+  const { tvId } = useParams();
 
   const mediaType = 'tv';
 
@@ -119,10 +121,10 @@ const TVDetails = ({ tvId, setTvId, setPersonId }) => {
       </div>
 
       <div className='cast__container'>
-        <Cast mediaType={mediaType} showId={tvId} setPersonId={setPersonId} />
+        <Cast mediaType={mediaType} showId={tvInfo.id} />
       </div>
 
-      <SimilarMedia mediaType={mediaType} showId={tvId} setShow={setTvId} />
+      <SimilarMedia mediaType={mediaType} showId={tvInfo.id} />
     </div>
   );
 };

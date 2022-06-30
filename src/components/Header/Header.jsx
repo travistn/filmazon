@@ -5,7 +5,7 @@ import './Header.css';
 
 const apiKey = process.env.REACT_APP_MOVIEDB_API_KEY;
 
-const Header = ({ setMovies, setTvShows, searchTerm, setSearchTerm, setPeople }) => {
+const Header = () => {
   const [moviesList, setMoviesList] = useState([]);
   const [randomMovie, setRandomMovie] = useState({});
 
@@ -19,8 +19,8 @@ const Header = ({ setMovies, setTvShows, searchTerm, setSearchTerm, setPeople })
     setMoviesList(data.results);
   };
 
-  const getRandomizedMovie = useCallback(async () => {
-    const random = await moviesList[Math.floor(Math.random() * moviesList?.length)];
+  const getRandomizedMovie = useCallback(() => {
+    const random = moviesList[Math.floor(Math.random() * moviesList?.length)];
     setRandomMovie(random);
   }, [moviesList]);
 
@@ -43,13 +43,7 @@ const Header = ({ setMovies, setTvShows, searchTerm, setSearchTerm, setPeople })
           <h3>Welcome.</h3>
           <h4>Millions of movies, TV shows, and people to discover. Explore now.</h4>
         </div>
-        <Search
-          setMovies={setMovies}
-          setTvShows={setTvShows}
-          setPeople={setPeople}
-          searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm}
-        />
+        <Search />
       </div>
     </div>
   );

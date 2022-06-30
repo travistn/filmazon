@@ -6,7 +6,7 @@ import './Movies.css';
 
 const apiKey = process.env.REACT_APP_MOVIEDB_API_KEY;
 
-const Movies = ({ setMovieId }) => {
+const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
 
@@ -46,7 +46,6 @@ const Movies = ({ setMovieId }) => {
                 title={movie?.title}
                 releaseDate={movie?.release_date === null ? 'TBA' : movie?.release_date}
                 movieId={movie?.id}
-                setMovieId={setMovieId}
                 key={movie?.id}
               />
             ))}

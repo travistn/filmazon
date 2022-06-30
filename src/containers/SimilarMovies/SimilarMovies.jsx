@@ -5,7 +5,7 @@ import './SimilarMovies.css';
 
 const apiKey = process.env.REACT_APP_MOVIEDB_API_KEY;
 
-const SimilarMedia = ({ mediaType, showId, setShow }) => {
+const SimilarMedia = ({ mediaType, showId }) => {
   const [similarMedia, setSimilarMedia] = useState([]);
   const navigate = useNavigate();
 
@@ -24,7 +24,6 @@ const SimilarMedia = ({ mediaType, showId, setShow }) => {
 
   const clickHandler = (e) => {
     const id = e.currentTarget.getAttribute('value');
-    setShow(id);
 
     navigate(`/${mediaType}/${id}`);
   };
@@ -43,7 +42,7 @@ const SimilarMedia = ({ mediaType, showId, setShow }) => {
         <h3>Similar {mediaType === 'movie' ? 'Movies' : 'TV Shows'}</h3>
         <div className='similarMedia__list'>
           {similarMedia?.map((show) => (
-            <div className='similarMedia__card'>
+            <div className='similarMedia__card' key={show.id}>
               <img
                 src={`https://www.themoviedb.org/t/p/w250_and_h141_face/${show?.backdrop_path}`}
                 alt='movie-poster'

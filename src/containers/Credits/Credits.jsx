@@ -9,17 +9,14 @@ const formatYear = (date) => {
   return date?.slice(0, 4);
 };
 
-export const Credits = ({ personId, setMovieId, setTvId }) => {
+export const Credits = ({ personId }) => {
   const [credits, setCredits] = useState();
   const [filter, setFilter] = useState('all');
   const navigate = useNavigate();
 
   const clickHandler = (e) => {
-    const mediaType = e.currentTarget.getAttribute('mediaType');
+    const mediaType = e.currentTarget.getAttribute('mediatype');
     const id = e.currentTarget.getAttribute('value');
-
-    if (mediaType === 'movie') setMovieId(id);
-    if (mediaType === 'tv') setTvId(id);
 
     navigate(`/${mediaType}/${id}`);
   };
@@ -102,26 +99,22 @@ export const Credits = ({ personId, setMovieId, setTvId }) => {
       <table className='credits__table'>
         <tbody>
           {filterSelector?.map((credit) => (
-            <table className='table__group'>
-              <tbody key={credit?.id}>
-                <tr>
-                  <td className='credit-releaseDate'>
-                    {formatYear(credit?.release_date || credit?.first_air_date)}
-                  </td>
-                  <td
-                    className='credit-title'
-                    value={credit?.id}
-                    mediaType={credit?.media_type}
-                    onClick={clickHandler}>
-                    {credit?.title || credit?.name}
-                    <span className='credits-characterAs'>
-                      {' as '}
-                      <span className='credits-characterName'>{credit?.character}</span>
-                    </span>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            <tr className='table__group' key={credit?.id}>
+              <td className='credit-releaseDate'>
+                {formatYear(credit?.release_date || credit?.first_air_date)}
+              </td>
+              <td
+                className='credit-title'
+                value={credit?.id}
+                mediatype={credit?.media_type}
+                onClick={clickHandler}>
+                {credit?.title || credit?.name}
+                <span className='credits-characterAs'>
+                  {' as '}
+                  <span className='credits-characterName'>{credit?.character}</span>
+                </span>
+              </td>
+            </tr>
           ))}
         </tbody>
       </table>

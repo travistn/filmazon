@@ -5,16 +5,13 @@ import './KnownFor.css';
 
 const apiKey = process.env.REACT_APP_MOVIEDB_API_KEY;
 
-const KnownFor = ({ name, personId, setMovieId, setTvId }) => {
+const KnownFor = ({ name, personId }) => {
   const [credits, setCredits] = useState();
   const navigate = useNavigate();
 
   const clickHandler = (e) => {
-    const mediaType = e.currentTarget.getAttribute('mediaType');
+    const mediaType = e.currentTarget.getAttribute('mediatype');
     const id = e.currentTarget.getAttribute('value');
-
-    if (mediaType === 'movie') setMovieId(id);
-    if (mediaType === 'tv') setTvId(id);
 
     navigate(`/${mediaType}/${id}`);
   };
@@ -41,9 +38,10 @@ const KnownFor = ({ name, personId, setMovieId, setTvId }) => {
           person?.known_for.map((credit) => (
             <div
               className='knownFor__card'
-              mediaType={credit?.media_type}
+              mediatype={credit?.media_type}
               value={credit?.id}
-              onClick={clickHandler}>
+              onClick={clickHandler}
+              key={credit?.id}>
               <img
                 src={`https://image.tmdb.org/t/p/w185/${credit?.poster_path}`}
                 alt='media-poster'

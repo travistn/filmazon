@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
+import { useParams } from 'react-router-dom';
 
 import Trailer from '../../components/Trailer/Trailer';
 import Cast from '../Cast/Cast';
@@ -23,11 +24,12 @@ const formatDate = (date) => {
   return `${month}/${day}/${year}`;
 };
 
-const MovieDetails = ({ movieId, setMovieId, setPersonId }) => {
+const MovieDetails = () => {
   const [movieInfo, setMovieInfo] = useState({});
   const [movieTrailer, setMovieTrailer] = useState();
   const [openModal, setOpenModal] = useState(false);
   const ref = useRef();
+  const { movieId } = useParams();
 
   const mediaType = 'movie';
 
@@ -117,10 +119,10 @@ const MovieDetails = ({ movieId, setMovieId, setPersonId }) => {
       </div>
 
       <div className='cast__container'>
-        <Cast mediaType={mediaType} showId={movieId} setPersonId={setPersonId} />
+        <Cast mediaType={mediaType} showId={movieInfo.id} />
       </div>
 
-      <SimilarMedia mediaType={mediaType} showId={movieId} setShow={setMovieId} />
+      <SimilarMedia mediaType={mediaType} showId={movieInfo.id} />
     </div>
   );
 };

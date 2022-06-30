@@ -2,12 +2,11 @@ import { useNavigate } from 'react-router-dom';
 
 import './MovieCard.css';
 
-const MovieCard = ({ image, title, releaseDate, movieId, setMovieId }) => {
+const MovieCard = ({ image, title, releaseDate, movieId }) => {
   const navigate = useNavigate();
 
   const clickHandler = (e) => {
     const id = e.currentTarget.getAttribute('value');
-    setMovieId(id);
 
     navigate(`/movie/${id}`);
   };

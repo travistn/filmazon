@@ -6,7 +6,7 @@ import './Cast.css';
 
 const apiKey = process.env.REACT_APP_MOVIEDB_API_KEY;
 
-const Cast = ({ mediaType, showId, setPersonId }) => {
+const Cast = ({ mediaType, showId }) => {
   const [cast, setCast] = useState([]);
 
   const getCast = useCallback(
@@ -31,17 +31,18 @@ const Cast = ({ mediaType, showId, setPersonId }) => {
       <h3>Top Billed Cast</h3>
       <div className='cast__list'>
         {cast?.map((person) => (
-          <CastCard
-            picture={
-              person.profile_path !== null
-                ? `https://www.themoviedb.org/t/p/w300_and_h450_bestv2${person?.profile_path}`
-                : blank_profile
-            }
-            cast_name={person?.name}
-            character_name={person?.character}
-            personId={person.id}
-            setPersonId={setPersonId}
-          />
+          <div key={person.id}>
+            <CastCard
+              picture={
+                person.profile_path !== null
+                  ? `https://www.themoviedb.org/t/p/w300_and_h450_bestv2${person?.profile_path}`
+                  : blank_profile
+              }
+              cast_name={person?.name}
+              character_name={person?.character}
+              personId={person.id}
+            />
+          </div>
         ))}
       </div>
     </div>

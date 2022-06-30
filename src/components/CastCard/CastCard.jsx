@@ -2,12 +2,11 @@ import { useNavigate } from 'react-router-dom';
 
 import './CastCard.css';
 
-export const CastCard = ({ picture, cast_name, character_name, personId, setPersonId }) => {
+export const CastCard = ({ picture, cast_name, character_name, personId }) => {
   const navigate = useNavigate();
 
   const clickHandler = (e) => {
     const id = e.currentTarget.getAttribute('value');
-    setPersonId(id);
 
     navigate(`/person/${id}`);
   };

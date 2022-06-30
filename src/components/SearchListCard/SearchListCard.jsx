@@ -2,28 +2,17 @@ import { useNavigate } from 'react-router-dom';
 
 import './SearchListCard.css';
 
-const SearchListCard = ({
-  image,
-  title,
-  releaseDate,
-  overview,
-  showId,
-  setMovieId,
-  setTvId,
-  mediaCategory,
-}) => {
+const SearchListCard = ({ image, title, releaseDate, overview, showId, mediaCategory }) => {
   const navigate = useNavigate();
 
   const clickHandler = (e) => {
     const id = e.currentTarget.getAttribute('value');
 
     if (mediaCategory === 'movie') {
-      setMovieId(id);
       navigate(`/movie/${id}`);
     }
 
     if (mediaCategory === 'tv') {
-      setTvId(id);
       navigate(`/tv/${id}`);
     }
   };

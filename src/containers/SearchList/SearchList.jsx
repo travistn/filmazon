@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import SearchListCard from '../../components/SearchListCard/SearchListCard';
 import './SearchList.css';
 
-const SearchList = ({ movies, tvShows, setMovieId, setTvId, people, setPersonId }) => {
+const SearchList = ({ movies, tvShows, people }) => {
   const [category, setCategory] = useState('movie');
   const navigate = useNavigate();
 
@@ -12,10 +12,9 @@ const SearchList = ({ movies, tvShows, setMovieId, setTvId, people, setPersonId 
     setCategory(e.target.id);
   };
 
-  const clickHandler = (e) => {
+  const directToPerson = (e) => {
     const id = e.currentTarget.getAttribute('value');
 
-    setPersonId(id);
     navigate(`/person/${id}`);
   };
 
@@ -77,7 +76,6 @@ const SearchList = ({ movies, tvShows, setMovieId, setTvId, people, setPersonId 
                   releaseDate={movie?.release_date}
                   overview={movie?.overview}
                   showId={movie?.id}
-                  setMovieId={setMovieId}
                   mediaCategory={category}
                   key={movie?.id}
                 />
@@ -93,7 +91,6 @@ const SearchList = ({ movies, tvShows, setMovieId, setTvId, people, setPersonId 
                   releaseDate={tv?.first_air_date}
                   overview={tv?.overview}
                   showId={tv?.id}
-                  setTvId={setTvId}
                   mediaCategory={category}
                   key={tv?.id}
                 />
@@ -108,10 +105,10 @@ const SearchList = ({ movies, tvShows, setMovieId, setTvId, people, setPersonId 
                     src={`https://www.themoviedb.org/t/p/w90_and_h90_face/${person?.profile_path}`}
                     alt='profile-pic'
                     value={person?.id}
-                    onClick={clickHandler}
+                    onClick={directToPerson}
                   />
                   <div className='searchList-person__card-content'>
-                    <h5 value={person?.id} onClick={clickHandler}>
+                    <h5 value={person?.id} onClick={directToPerson}>
                       {person?.name}
                     </h5>
                     <p>

@@ -12,7 +12,7 @@ const formatDate = (date) => {
   return `${month}/${day}/${year}`;
 };
 
-const NowPlaying = ({ setMovieId }) => {
+const NowPlaying = () => {
   const [nowPlaying, setNowPlaying] = useState();
   const navigate = useNavigate();
 
@@ -32,7 +32,6 @@ const NowPlaying = ({ setMovieId }) => {
 
   const clickHandler = (e) => {
     const id = e.currentTarget.getAttribute('value');
-    setMovieId(id);
 
     navigate(`movie/${id}`);
   };

@@ -12,70 +12,49 @@ import Person from './containers/Person/Person';
 import SearchList from './containers/SearchList/SearchList';
 import Movies from './containers/Movies/Movies';
 import NowPlaying from './containers/NowPlaying/NowPlaying';
+
+import { AppContext } from './contexts/AppContext';
 import './App.css';
 
 const App = () => {
   const [movies, setMovies] = useState([]);
-  const [movieId, setMovieId] = useState();
-
   const [tvShows, setTvShows] = useState([]);
-  const [tvId, setTvId] = useState();
-
-  const [personId, setPersonId] = useState();
   const [people, setPeople] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
+
+  const contextvalues = {
+    movies,
+    setMovies,
+    tvShows,
+    setTvShows,
+    people,
+    setPeople,
+  };
 
   return (
-    <>
+    <AppContext.Provider value={contextvalues}>
       <Navbar />
       <Routes>
         <Route
           path='/'
           element={
             <>
-              <Header
-                setMovies={setMovies}
-                setTvShows={setTvShows}
-                setPeople={setPeople}
-                searchTerm={searchTerm}
-                setSearchTerm={setSearchTerm}
-              />
-              <NowPlaying setMovieId={setMovieId} />
-              <Trending setMovieId={setMovieId} />
+              <Header />
+              <NowPlaying />
+              <Trending />
             </>
           }></Route>
+        <Route path={`movie/:movieId`} element={<MovieDetails />} />
+        <Route path={`tv/:tvId`} element={<TVDetails />} />
+        <Route path={`person/:personId`} element={<Person />} />
         <Route
-          path={`movie/${movieId}`}
-          element={
-            <MovieDetails movieId={movieId} setMovieId={setMovieId} setPersonId={setPersonId} />
-          }
+          path={`search&query=:searchTerm`}
+          element={<SearchList movies={movies} tvShows={tvShows} people={people} />}
         />
-        <Route
-          path={`tv/${tvId}`}
-          element={<TVDetails tvId={tvId} setTvId={setTvId} setPersonId={setPersonId} />}
-        />
-        <Route
-          path={`person/${personId}`}
-          element={<Person personId={personId} setMovieId={setMovieId} setTvId={setTvId} />}
-        />
-        <Route
-          path={`search&query=${searchTerm}`}
-          element={
-            <SearchList
-              movies={movies}
-              setMovieId={setMovieId}
-              tvShows={tvShows}
-              setTvId={setTvId}
-              people={people}
-              setPersonId={setPersonId}
-            />
-          }
-        />
-        <Route path={'movies'} element={<Movies setMovieId={setMovieId} />} />
+        <Route path={'movies'} element={<Movies />} />
         <Route path={'signup'} element={<Signup />} />\
         <Route path={'login'} element={<Login />} />
       </Routes>
-    </>
+    </AppContext.Provider>
   );
 };
 

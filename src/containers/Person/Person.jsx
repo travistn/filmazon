@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { BsInstagram, BsTwitter, BsFacebook } from 'react-icons/bs';
 
 import KnownFor from '../KnownFor/KnownFor';
@@ -16,13 +17,14 @@ const gender = (num) => {
   }
 };
 
-const Person = ({ personId, setMovieId, setTvId }) => {
+const Person = ({ setMovieId, setTvId }) => {
   const [person, setPerson] = useState();
   const [socials, setSocials] = useState();
+  const { personId } = useParams();
 
-  const getPerson = async (personId) => {
+  const getPerson = async (id) => {
     const response = await fetch(
-      `https://api.themoviedb.org/3/person/${personId}?api_key=${apiKey}&language=en-US`
+      `https://api.themoviedb.org/3/person/${id}?api_key=${apiKey}&language=en-US`
     );
 
     const data = await response.json();
@@ -30,9 +32,9 @@ const Person = ({ personId, setMovieId, setTvId }) => {
     setPerson(data);
   };
 
-  const getPersonSocials = async (personId) => {
+  const getPersonSocials = async (id) => {
     const response = await fetch(
-      `https://api.themoviedb.org/3/person/${personId}/external_ids?api_key=${apiKey}&language=en-US`
+      `https://api.themoviedb.org/3/person/${id}/external_ids?api_key=${apiKey}&language=en-US`
     );
 
     const data = await response.json();
@@ -113,16 +115,11 @@ const Person = ({ personId, setMovieId, setTvId }) => {
             </section>
             <section className='person-knownFor'>
               <h4>Known For</h4>
-              <KnownFor
-                name={person?.name}
-                personId={person?.id}
-                setMovieId={setMovieId}
-                setTvId={setTvId}
-              />
+              <KnownFor name={person?.name} personId={person?.id} />
             </section>
             <section className='person-credits'>
               <div>
-                <Credits personId={personId} setMovieId={setMovieId} setTvId={setTvId} />
+                <Credits personId={personId} />
               </div>
             </section>
           </div>
