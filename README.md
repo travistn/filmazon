@@ -4,6 +4,7 @@ A web application for film buffs to get anything movie and tv related!
 ### [Live Demo](https://filmazon-tn.netlify.app/)
 
 ## Description
+This app uses data from [The Movie Database API](https://developers.themoviedb.org/3/getting-started/introduction) to build a UI that displays the data.
 
 ### Home
 Users can view movies currently playing in theaters and daily or weekly trending movies.
