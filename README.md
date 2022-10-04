@@ -47,8 +47,9 @@ Users can view the movies, tv, and actors related to the entered search.
 ## Motivation
 The purpose of this project was to teach myself about React development with using API data as the main focus. Using API data, I learned a lot about how to manipulate the data into display what I wanted to be displayed in the UI.
 
-## Technologies used to create the project:
+## Technologies Used
 * React.js
 * Javascript
 * CSS
 * HTML
+* React Router
