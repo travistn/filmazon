@@ -32,6 +32,9 @@ Users can sort an actor's works by all, movies, or tv.
 
 ![Actor-filmography](https://user-images.githubusercontent.com/42354863/193946054-a6aa55e5-dd37-4422-bd8d-508c94fb6ed9.gif)
 
+Users can navigate to one of an actor's most known works or to their social media.
+
+![Actor2](https://user-images.githubusercontent.com/42354863/193947641-554a91d2-8513-470f-bb24-8763076a135d.gif)
 
 #### Technologies used to create the project:
 * React.js
