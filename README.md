@@ -6,6 +6,8 @@ A web application for film buffs to get anything movie and tv related!
 ## Description
 This app uses data from [The Movie Database API](https://developers.themoviedb.org/3/getting-started/introduction) to build a UI that displays the data.
 
+## Demonstrations
+
 ### Home
 Users can view movies currently playing in theaters and daily or weekly trending movies.
 
@@ -42,7 +44,10 @@ Users can view the movies, tv, and actors related to the entered search.
 
 ![Search](https://user-images.githubusercontent.com/42354863/193947995-fee83b5b-e43b-42e5-8194-003ea5712085.gif)
 
-#### Technologies used to create the project:
+## Motivation
+The purpose of this project was to teach myself about React development with using API data as the main focus. Using API data, I learned a lot about how to manipulate the data into display what I wanted to be displayed in the UI.
+
+## Technologies used to create the project:
 * React.js
 * Javascript
 * CSS
