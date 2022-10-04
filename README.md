@@ -36,6 +36,11 @@ Users can navigate to one of an actor's most known works or to their social medi
 
 ![Actor2](https://user-images.githubusercontent.com/42354863/193947641-554a91d2-8513-470f-bb24-8763076a135d.gif)
 
+### Search
+Users can view the movies, tv, and actors related to the entered search.
+
+![Search](https://user-images.githubusercontent.com/42354863/193947995-fee83b5b-e43b-42e5-8194-003ea5712085.gif)
+
 #### Technologies used to create the project:
 * React.js
 * Javascript
