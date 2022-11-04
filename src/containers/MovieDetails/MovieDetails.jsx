@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
+import './MovieDetails.css';
 import Trailer from '../../components/Trailer/Trailer';
 import Cast from '../Cast/Cast';
 import SimilarMedia from '../SimilarMovies/SimilarMovies';
-import './MovieDetails.css';
 import { convertMinutesToHours, formatDate } from '../../utils/Reuseables';
 
 const apiKey = process.env.REACT_APP_MOVIEDB_API_KEY;
@@ -17,29 +18,16 @@ const MovieDetails = () => {
 
   const mediaType = 'movie';
 
-  const lookupMovieDetails = async (id) => {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`
-    );
-
-    const data = await response.json();
-
-    setMovieInfo(data);
-  };
-
-  const getMovieTrailer = async (id) => {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${apiKey}&language=en-US`
-    );
-
-    const data = await response.json();
-
-    setMovieTrailer(data.results?.find((movie) => movie.type === 'Trailer'));
-  };
+  useEffect(() => {
+    axios
+      .get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`)
+      .then((res) => setMovieInfo(res.data));
+  }, [movieId]);
 
   useEffect(() => {
-    lookupMovieDetails(movieId);
-    getMovieTrailer(movieId);
+    axios
+      .get(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${apiKey}&language=en-US`)
+      .then((res) => setMovieTrailer(res.data.results?.find((movie) => movie.type === 'Trailer')));
   }, [movieId]);
 
   return (
