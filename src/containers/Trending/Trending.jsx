@@ -1,47 +1,25 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 import './Trending.css';
-
-const apiKey = process.env.REACT_APP_MOVIEDB_API_KEY;
-
-const formatDate = (date) => {
-  const year = date?.slice(0, 4);
-  const month = date?.slice(5, 7);
-  const day = date?.slice(8);
-  return `${month}/${day}/${year}`;
-};
+import { apiKey, formatDate } from '../../utils/Reuseables';
 
 const Trending = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
   const [day, setDay] = useState('day');
   const navigate = useNavigate();
 
-  const searchTrendingMovies = async (day) => {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/trending/movie/${day}?api_key=${apiKey}`
-    );
-
-    const data = await response.json();
-
-    setTrendingMovies(data.results);
-  };
-
   useEffect(() => {
-    searchTrendingMovies(day);
+    axios
+      .get(`https://api.themoviedb.org/3/trending/movie/${day}?api_key=${apiKey}`)
+      .then((res) => setTrendingMovies(res.data.results));
   }, [day]);
-
-  const clickHandler = (e) => {
-    const id = e.currentTarget.getAttribute('value');
-
-    navigate(`/movie/${id}`);
-  };
 
   return (
     <div className='trending__container'>
       <div className='trending__header'>
         <h2 className='trending__header-title'>Trending Movies</h2>
-
         <div className='selector__wrapper'>
           <div className='selector'>
             <div
@@ -57,7 +35,6 @@ const Trending = () => {
           </div>
         </div>
       </div>
-
       <div className='trending__list'>
         {trendingMovies?.map((movie) => (
           <div key={movie.id}>
@@ -66,13 +43,10 @@ const Trending = () => {
                 className='trending__card-image'
                 src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`}
                 alt='movie-poster'
-                onClick={clickHandler}
-                value={movie?.id}
+                onClick={() => navigate(`/movie/${movie?.id}`)}
               />
               <div className='trending__card-content'>
-                <h2 onClick={clickHandler} value={movie?.id}>
-                  {movie?.title}
-                </h2>
+                <h2 onClick={() => navigate(`/movie/${movie?.id}`)}>{movie?.title}</h2>
                 <p>{`${formatDate(movie?.release_date)}`}</p>
               </div>
             </div>

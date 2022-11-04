@@ -1,3 +1,5 @@
+export const apiKey = process.env.REACT_APP_MOVIEDB_API_KEY;
+
 export const convertMinutesToHours = (n) => {
   const num = n;
   const hours = num / 60;
