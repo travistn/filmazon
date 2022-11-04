@@ -47,7 +47,7 @@ const Trending = () => {
               />
               <div className='trending__card-content'>
                 <h2 onClick={() => navigate(`/movie/${movie?.id}`)}>{movie?.title}</h2>
-                <p>{`${formatDate(movie?.release_date)}`}</p>
+                <p>{formatDate(movie?.release_date)}</p>
               </div>
             </div>
           </div>
