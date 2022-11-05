@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 import { BsInstagram, BsTwitter, BsFacebook } from 'react-icons/bs';
 
+import './Person.css';
 import KnownFor from '../KnownFor/KnownFor';
 import { Credits } from '../Credits/Credits';
-import './Person.css';
-
-const apiKey = process.env.REACT_APP_MOVIEDB_API_KEY;
+import { apiKey } from '../../utils/Reuseables';
 
 const gender = (num) => {
   if (num === 1) {
@@ -22,29 +22,18 @@ const Person = () => {
   const [socials, setSocials] = useState();
   const { personId } = useParams();
 
-  const getPerson = async (id) => {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/person/${id}?api_key=${apiKey}&language=en-US`
-    );
-
-    const data = await response.json();
-
-    setPerson(data);
-  };
-
-  const getPersonSocials = async (id) => {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/person/${id}/external_ids?api_key=${apiKey}&language=en-US`
-    );
-
-    const data = await response.json();
-
-    setSocials(data);
-  };
+  useEffect(() => {
+    axios
+      .get(`https://api.themoviedb.org/3/person/${personId}?api_key=${apiKey}&language=en-US`)
+      .then((res) => setPerson(res.data));
+  }, [personId]);
 
   useEffect(() => {
-    getPerson(personId);
-    getPersonSocials(personId);
+    axios
+      .get(
+        `https://api.themoviedb.org/3/person/${personId}/external_ids?api_key=${apiKey}&language=en-US`
+      )
+      .then((res) => setSocials(res.data));
   }, [personId]);
 
   return (

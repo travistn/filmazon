@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
+import './TVDetails.css';
 import Trailer from '../../components/Trailer/Trailer';
 import Cast from '../Cast/Cast';
 import SimilarMedia from '../SimilarMovies/SimilarMovies';
-import './TVDetails.css';
-import { convertMinutesToHours, formatDate } from '../../utils/Reuseables';
-
-const apiKey = process.env.REACT_APP_MOVIEDB_API_KEY;
+import { convertMinutesToHours, formatDate, apiKey } from '../../utils/Reuseables';
 
 const TVDetails = () => {
   const [tvInfo, setTvInfo] = useState({});
@@ -17,29 +16,16 @@ const TVDetails = () => {
 
   const mediaType = 'tv';
 
-  const lookupTVDetails = async (id) => {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/tv/${id}?api_key=${apiKey}&language=en-US`
-    );
-
-    const data = await response.json();
-
-    setTvInfo(data);
-  };
-
-  const getTVTrailer = async (id) => {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/tv/${id}/videos?api_key=${apiKey}&language=en-US`
-    );
-
-    const data = await response.json();
-
-    setTvTrailer(data.results?.find((tv) => tv.type === 'Trailer'));
-  };
+  useEffect(() => {
+    axios
+      .get(`https://api.themoviedb.org/3/tv/${tvId}?api_key=${apiKey}&language=en-US`)
+      .then((res) => setTvInfo(res.data));
+  }, [tvId]);
 
   useEffect(() => {
-    lookupTVDetails(tvId);
-    getTVTrailer(tvId);
+    axios
+      .get(`https://api.themoviedb.org/3/tv/${tvId}/videos?api_key=${apiKey}&language=en-US`)
+      .then((res) => setTvTrailer(res.data.results?.find((tv) => tv.type === 'Trailer')));
   }, [tvId]);
 
   return (
@@ -65,13 +51,11 @@ const TVDetails = () => {
                 (genre) => ` ${genre.name}`
               )} · ${convertMinutesToHours(tvInfo.episode_run_time)} `}</p>
             </div>
-
             <div>
               <p className='tvDetails__header_info-tagline'>{tvInfo.tagline}</p>
               <h4 className='tvDetails__header_info-overview'>Overview</h4>
               <p className='tvDetails__header_info-overview-paragraph'>{tvInfo.overview}</p>
             </div>
-
             <div className='tvDetails__header_info-trailer'>
               <p onClick={() => setOpenModal(true)}>Play Trailer</p>
               {openModal && (
@@ -86,11 +70,9 @@ const TVDetails = () => {
           </div>
         </div>
       </div>
-
       <div className='cast__container'>
         <Cast mediaType={mediaType} showId={tvInfo.id} />
       </div>
-
       <SimilarMedia mediaType={mediaType} showId={tvInfo.id} />
     </div>
   );

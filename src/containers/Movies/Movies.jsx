@@ -1,32 +1,26 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
+import './Movies.css';
 import MovieCard from '../../components/MovieCard/MovieCard';
 import Sort from '../../components/Sort/Sort';
-import './Movies.css';
-
-const apiKey = process.env.REACT_APP_MOVIEDB_API_KEY;
+import { apiKey } from '../../utils/Reuseables';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
-
-  const getPopularMovies = useCallback(async () => {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=${page}`
-    );
-
-    const data = await response.json();
-
-    setMovies((prevState) => prevState.concat(data.results));
-  }, [page]);
 
   const addPage = () => {
     setPage((prevState) => prevState + 1);
   };
 
   useEffect(() => {
-    getPopularMovies();
-  }, [getPopularMovies]);
+    axios
+      .get(
+        `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=${page}`
+      )
+      .then((res) => setMovies((prevState) => prevState.concat(res.data.results)));
+  }, [page]);
 
   return (
     <div className='movies__wrapper'>

@@ -51,6 +51,11 @@
   border-style: none;
 }
 
+.movies-loadMore button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
 @media screen and (max-width: 850px) {
   .movies__container {
     width: 90%;

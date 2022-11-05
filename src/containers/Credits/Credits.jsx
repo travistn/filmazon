@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 import './Credits.css';
-
-const apiKey = process.env.REACT_APP_MOVIEDB_API_KEY;
+import { apiKey } from '../../utils/Reuseables';
 
 const formatYear = (date) => {
   return date?.slice(0, 4);
@@ -14,7 +14,7 @@ export const Credits = ({ personId }) => {
   const [filter, setFilter] = useState('all');
   const navigate = useNavigate();
 
-  const clickHandler = (e) => {
+  const creditsHandler = (e) => {
     const mediaType = e.currentTarget.getAttribute('mediatype');
     const id = e.currentTarget.getAttribute('value');
 
@@ -27,18 +27,12 @@ export const Credits = ({ personId }) => {
     setFilter(filterName);
   };
 
-  const getCredits = async (personId) => {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/person/${personId}/combined_credits?api_key=${apiKey}&language=en-US`
-    );
-
-    const data = await response.json();
-
-    setCredits(data);
-  };
-
   useEffect(() => {
-    getCredits(personId);
+    axios
+      .get(
+        `https://api.themoviedb.org/3/person/${personId}/combined_credits?api_key=${apiKey}&language=en-US`
+      )
+      .then((res) => setCredits(res.data));
   }, [personId]);
 
   const creditsContainingTitle = credits?.cast.filter((credit) => {
@@ -107,7 +101,7 @@ export const Credits = ({ personId }) => {
                 className='credit-title'
                 value={credit?.id}
                 mediatype={credit?.media_type}
-                onClick={clickHandler}>
+                onClick={creditsHandler}>
                 {credit?.title || credit?.name}
                 <span className='credits-characterAs'>
                   {' as '}
